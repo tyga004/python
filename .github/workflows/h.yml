@@ -1,0 +1,25 @@
+name: main
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9  # You can specify the Python version you need
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt  # Replace with your requirements file if applicable
+
+      - name: Run Tests
+        run: python your_test_script.py  # Replace with the name of your Python test script
